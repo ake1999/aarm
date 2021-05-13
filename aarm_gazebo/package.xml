@@ -1,0 +1,22 @@
+<package>
+  <name>aarm_gazebo</name>
+  <version>0.0.1</version>
+  <description>aarm_gazebo</description>
+  <maintainer email="alikarimzade29@gmail.com">Ali Karimzade</maintainer>
+
+  <license>BSD</license>
+
+  <author email="alikarimzade29@gmail.com">Ali Karimzade</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>gazebo_plugins</run_depend>
+  <run_depend>gazebo_ros</run_depend>
+  <run_depend>gazebo_ros_control</run_depend>
+  <run_depend>aarm_control</run_depend>
+  <run_depend>aarm_description</run_depend>
+  <run_depend>xacro</run_depend>
+
+  <export>
+  </export>
+</package>

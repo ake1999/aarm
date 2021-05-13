@@ -1,0 +1,34 @@
+<launch>
+
+  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+  <arg name="load_controllers" default="true"/>
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+  <arg name="urdf_path" default="$(find aarm_description)/urdf/aarm.urdf"/>
+
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find aarm_gazebo)/worlds/aarm.world"/>
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="headless" value="$(arg headless)"/>
+  </include>
+
+  <!-- Load the URDF into the ROS Parameter Server -->
+  <param name="robot_description" textfile="$(arg urdf_path)" />
+
+  <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+  <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-urdf -model aarm -param robot_description -z 0.5"/>
+
+  <!-- ros_control rrbot launch file -->
+  <include file="$(find aarm_control)/launch/aarm_control.launch" if="$(arg load_controllers)">
+    <arg name="rqt_gui" value="true"/>
+  </include>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aarm_description)/launch/aarm.rviz"/>
+</launch>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package>
+  <name>aarm_description</name>
+  <version>0.0.1</version>
+  <description>The aarm_description package</description>
+
+  <maintainer email="alikarimzade29@gmail.com">Ali Karimzade</maintainer>
+
+  <license>BSD</license>
+
+  <author email="alikarimzade29@gmail.com">Ali Karimzade</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>joint_state_publisher</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>rviz</run_depend>
+
+  <export>
+  </export>
+</package>
