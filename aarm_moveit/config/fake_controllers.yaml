@@ -1,0 +1,9 @@
+controller_list:
+  - name: fake_aarm_group_controller
+    joints:
+      - prismatic
+      - revolute
+      - continuous
+initial:  # Define initial robot poses.
+  - group: aarm_group
+    pose: Home
