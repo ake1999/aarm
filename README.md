@@ -1,4 +1,4 @@
-# **aarm**
+# **Automated robotic Arm(aarm)**
 
 *The purpose of this project is to train a 3 DOF handmade robot with PRR joints and with planer movement to move objects on a horizontal plane to a randomly chosen desired location on the table, which is done with the help of reinforcement learning algorithms and in the simulated environment. this simulation is done in the Gazebo that has been implemented under the ROS software framework.*
 
